@@ -14,6 +14,6 @@ public class MainController {
 
     @RequestMapping("/")
     public String landing() {
-        return "Prueba de edicion 2";
+        return "Prueba de edicion 3";
     }
 }
