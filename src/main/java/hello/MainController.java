@@ -14,6 +14,6 @@ public class MainController {
 
     @RequestMapping("/")
     public String landing() {
-        return "User Management Service";
+        return "Prueba de edicion";
     }
 }
