@@ -1,2 +1,3 @@
-Tutorial sobre inicios de sesión
+Tutoriales sobre inicios de sesión
 https://spring.io/guides/gs/securing-web/
+http://kielczewski.eu/2014/12/spring-boot-security-application/
