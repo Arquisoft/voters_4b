@@ -37,9 +37,8 @@ public class MainControllerTest {
 
 	@Test
 	public void getLanding() throws Exception {
-		String userURI = base.toString() + "/user";  
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-		assertThat(response.getBody(), equalTo("User Management Service"));
+		assertThat(response.getBody(), equalTo("Prueba de edicion 3"));
 	}
 	
 	@Test
