@@ -10,21 +10,21 @@ public class UserInfo {
 	
 	private static final Logger log = LoggerFactory.getLogger(UserInfo.class);
 
-    private final String name;
-    private final Integer age;
+    private final String email;
+    private final String password;
     
     @JsonCreator
-	public UserInfo(@JsonProperty("name") String name, @JsonProperty("age")Integer age) {
-    	log.info("Creating user " + name + ". age: " + age);
-        this.name = name;
-        this.age = age;
+	public UserInfo(@JsonProperty("email") String email, @JsonProperty("password")String password) {
+    	//log.info("Creating user " + name + ". age: " + password);
+        this.email = email;
+        this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getPassword() {
+        return password;
     }
 }
