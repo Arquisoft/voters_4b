@@ -1,19 +1,22 @@
 package hello;
 
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MainController {
 
-    @RequestMapping("/user")
-    public UserInfo user() {
-        return new UserInfo("pepe",0);
-    }
-
     @RequestMapping("/")
     public String landing() {
-        return "Prueba de edicion 4";
+        return "Landing page por Voters System";
     }
+    
+	@RequestMapping(value="/user", method=RequestMethod.POST)
+	public @ResponseBody UserInfo getVI(@RequestBody UserInfo userInfo) {
+		return userInfo;
+	}
 }
