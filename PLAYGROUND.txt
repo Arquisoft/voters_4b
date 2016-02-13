@@ -1,6 +1,1 @@
-Tutoriales sobre inicios de sesión
-https://spring.io/guides/gs/securing-web/
-http://kielczewski.eu/2014/12/spring-boot-security-application/
-
-El tutorial bueno
-http://www.leveluplunch.com/java/tutorials/014-post-json-to-spring-rest-webservice/
+CREATE TABLE USERS(NAME VARCHAR(255), NIF VARCHAR(9) PRIMARY KEY, EMAIL VARCHAR(255), PASSWORD VARCHAR(255), POLLINGSTATIONCODE VARCHAR(255))
