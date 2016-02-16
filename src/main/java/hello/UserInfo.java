@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserInfo {
 	
-	private static final Logger log = LoggerFactory.getLogger(UserInfo.class);
+	//private static final Logger log = LoggerFactory.getLogger(UserInfo.class);
 
     private final String email;
     private final String password;
