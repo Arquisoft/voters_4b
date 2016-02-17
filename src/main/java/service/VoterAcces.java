@@ -17,6 +17,7 @@ public class VoterAcces implements GetVoter {
 	@Override
 	public User getUser(String email, String password) {
 		// TODO comprobar email y contraseña not null
+		this.repository.save(new User("pamela@gmail.com", "patata"));
 		return this.repository.findByEmailAndPassword(email, password);
 	}
 
