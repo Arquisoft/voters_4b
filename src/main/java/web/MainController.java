@@ -1,16 +1,16 @@
 package web;
 
-import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import aplication.UserInfo;
 import service.VoterAcces;
 
-@RepositoryRestController
-public class RestController {
+@RestController
+public class MainController {
 
 	private VoterAcces voterAccess;
 
