@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import conf.PersistenceFactory;
 
-@RestController
+//@RestController
 public class VoterAccess {
 
 	@RequestMapping("/")

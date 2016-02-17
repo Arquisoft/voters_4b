@@ -18,7 +18,8 @@ public class Application {
 	@Bean
 	public CommandLineRunner demo(UserRepository repository) {
 		return (args) -> {
-
+			repository.save(new User("Pepe", "Bauer", "", "", ""));
+			repository.save(new User("Chloe", "O'Brian", "", "", ""));
 			// fetch an individual customer by ID
 			User user = repository.findOne(1L);
 			log.info("Customer found with findOne(1L):");
