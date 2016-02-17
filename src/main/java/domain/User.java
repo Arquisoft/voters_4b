@@ -1,4 +1,4 @@
-package hello;
+package domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,17 +19,12 @@ public class User {
 	private String email;
 	private String password;
 
-	public User(String name, String nif, String pollingStationCode, String email, String password) {
-		super();
-		this.name = name;
-		this.nif = nif;
-		this.pollingStationCode = pollingStationCode;
+	public User(String email, String password) {
 		this.email = email;
 		this.password = password;
 	}
 
-	public User() {
-		super();
+	protected User() {
 	}
 
 	public String getName() {
