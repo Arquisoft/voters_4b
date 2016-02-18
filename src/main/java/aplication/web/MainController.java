@@ -1,4 +1,4 @@
-package web;
+package aplication.web;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import aplication.UserInfo;
-import service.VoterAcces;
+import aplication.service.VoterAcces;
 
 @RestController
 public class MainController {

@@ -1,6 +1,6 @@
-package service;
+package aplication.service;
 
-import domain.User;
+import aplication.domain.User;
 
 public interface GetVoter {
 	User getUser(String email, String password);

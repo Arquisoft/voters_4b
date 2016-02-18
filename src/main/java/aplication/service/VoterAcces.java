@@ -1,14 +1,18 @@
-package service;
+package aplication.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import domain.User;
+import aplication.domain.User;
 
 @Component("voterAccess")
 public class VoterAcces implements GetVoter {
 
-	private final UserRepository repository;
+	@Autowired
+	private UserRepository repository;
 
+	public VoterAcces() {}
+	
 	public VoterAcces(UserRepository userRepository) {
 		this.repository = userRepository;
 
