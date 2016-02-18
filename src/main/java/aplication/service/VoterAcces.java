@@ -9,11 +9,11 @@ import aplication.domain.User;
 public class VoterAcces implements GetVoter {
 
 	@Autowired
-	private UserRepository repository;
+	private DBManagement repository;
 
 	public VoterAcces() {}
 	
-	public VoterAcces(UserRepository userRepository) {
+	public VoterAcces(DBManagement userRepository) {
 		this.repository = userRepository;
 
 	}

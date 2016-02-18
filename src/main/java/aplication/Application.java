@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import aplication.domain.User;
-import aplication.service.UserRepository;
+import aplication.service.DBManagement;
 
 @SpringBootApplication
 public class Application {

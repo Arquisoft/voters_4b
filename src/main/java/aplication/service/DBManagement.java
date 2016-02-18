@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import aplication.domain.User;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface DBManagement extends CrudRepository<User, Long> {
 
 	User findByEmailAndPassword(String email, String password);
 
