@@ -1,8 +1,8 @@
 package aplication.service;
 
-import aplication.domain.User;
+import aplication.domain.ServerResponse;
 
 public interface GetVoter {
-	User getUser(String email, String password);
+	ServerResponse getUser(String email, String password);
 
 }
