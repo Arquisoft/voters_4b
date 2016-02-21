@@ -15,7 +15,6 @@ import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.cloud.cloudfoundry.com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.cloud.cloudfoundry.com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -101,6 +100,9 @@ public class DBTest {
 		assertNotNull(apiResponse);
 
 		assertEquals("pamela@gmail.com", apiResponse.get("email"));
+		assertEquals("Pamela", apiResponse.get("name"));
+		assertEquals("11111111A", apiResponse.get("nif"));
+		assertEquals("01", apiResponse.get("pollingStationCode"));
 
 	}
 	
@@ -126,6 +128,9 @@ public class DBTest {
 				Map.class, Collections.EMPTY_MAP);
 
 		assertNull(apiResponse.get("email"));
+		assertNull(apiResponse.get("Nif"));
+		assertNull(apiResponse.get("name"));
+		assertNull(apiResponse.get("pollingStationCode"));
 		
 	}
 

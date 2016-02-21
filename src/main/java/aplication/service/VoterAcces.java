@@ -22,7 +22,11 @@ public class VoterAcces implements GetVoter {
 
 	@Override
 	public ServerResponse getUser(String email, String password) {
-		this.repository.save(new User("pamela@gmail.com", "patata"));
+		User pamela = new User("pamela@gmail.com", "patata");
+		pamela.setName("Pamela");
+		pamela.setNif("11111111A");
+		pamela.setPollingStationCode("01");
+		this.repository.save(pamela);
 		User user = this.repository.findByEmailAndPassword(email, password);
 		if (user == null) {
 			throw new ResourceNotFoundException("El usuario no se encuentra en la base de datos");
