@@ -52,7 +52,6 @@ public class MainController {
 		model.addAttribute("atributes", atributos);
 
 		return "InfoPage";
-
 	}
 
 }

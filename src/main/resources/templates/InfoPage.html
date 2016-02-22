@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-table, th, td {
-	border: 1px solid black;
-}
-</style>
 </head>
 <body>
 
 	<table>
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Nif</th>
-	<th>Email</th>
-	<th>Polling Station Code</th>
-	</tr>
-	</thead>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Nif</th>
+				<th>Email</th>
+				<th>Polling Station Code</th>
+			</tr>
+		</thead>
 		<tbody>
 			<tr th:each="atribute : ${atributes}">
 				<td th:text="${atribute.name}" />
