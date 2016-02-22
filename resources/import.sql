@@ -1,1 +1,0 @@
---insert into USERS(name, nif, pollingStationCode, email, password) values ("Pamela", "09448750M", "1L", "pamela@gmail.com", "patata")
