@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test</title>
+</head>
+<body>
+	<form id="gizmo-form" role="form" th:action="@{/showUserInfo}" method="post" th:object="${gizmo}">
+    <div>
+        <label for="field1">Email: </label>
+        <input type="text" id="field1" name="field1" th:field="${gizmo.field1}"/>
+    </div>
+    <div>
+        <label for="field2">Password: </label>
+        <input type="password" id="field2" name="field2" th:field="${gizmo.field2}"/>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+    </div>
+</form>
+</body>
+</html>
