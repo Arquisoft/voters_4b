@@ -1,16 +1,15 @@
 package aplication.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import aplication.UserInfo;
 import aplication.service.VoterAcces;
 
-@RestController
+@Controller
 public class MainController {
 
 	@Autowired
@@ -18,7 +17,7 @@ public class MainController {
 
 	@RequestMapping("/")
 	public String landing() {
-		return "Landing page por Voters System";
+		return "/html/WelcomePage.html";
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
