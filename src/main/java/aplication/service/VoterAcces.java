@@ -8,7 +8,7 @@ import aplication.domain.ServerResponse;
 import aplication.domain.User;
 
 @Component("voterAccess")
-public class VoterAcces implements GetVoter {
+public class VoterAcces implements GetVoterInfo {
 
 	@Autowired
 	private DBManagement repository;
@@ -21,7 +21,7 @@ public class VoterAcces implements GetVoter {
 	}
 
 	@Override
-	public ServerResponse getUser(String email, String password) {
+	public ServerResponse getVoter(String email, String password) {
 		User pamela = new User("pamela@gmail.com", "patata");
 		pamela.setName("Pamela");
 		pamela.setNif("11111111A");

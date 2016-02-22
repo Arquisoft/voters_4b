@@ -32,7 +32,7 @@ public class MainController {
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getVI(@RequestBody UserInfo userInfo) {
-		return this.voterAccess.getUser(userInfo.getEmail(), userInfo.getPassword());
+		return this.voterAccess.getVoter(userInfo.getEmail(), userInfo.getPassword());
 	}
 
 	@RequestMapping(value = "/showUserInfo", method = RequestMethod.POST)
@@ -41,7 +41,7 @@ public class MainController {
 		ServerResponse response;
 		
 		try {
-			response = this.voterAccess.getUser(gizmo.getField1(), gizmo.getField2());
+			response = this.voterAccess.getVoter(gizmo.getField1(), gizmo.getField2());
 		} catch (Exception e) {
 			return "WelcomePage";
 		}
