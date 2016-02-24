@@ -23,5 +23,12 @@
 		</tbody>
 	</table>
 
+	<form id="gizmo-form" role="form" th:action="@{/changePassword}"
+		method="post" th:object="${gizmo}">
+		<div id="buttonDIV">
+			<button type="submit" id="button">Change password</button>
+		</div>
+	</form>
+
 </body>
 </html>
