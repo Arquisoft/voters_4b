@@ -22,9 +22,6 @@ import groovy.lang.Grab;
 @Controller
 public class MainController {
 
-	@Autowired
-	private DBManagement repository;
-	
 	private UserInfo userInfo;
 	private ServerResponse serverResponse;
 
@@ -43,18 +40,15 @@ public class MainController {
 
 		this.userInfo = userInfo;
 
-		serverResponse = this.voterAccess.getVoter(userInfo.getEmail(), userInfo.getPassword());
+		this.serverResponse = this.voterAccess.getVoter(userInfo.getEmail(), userInfo.getPassword());
 
 		return serverResponse;
 	}
 
 	@RequestMapping(value = "/showUserInfo", method = RequestMethod.POST)
-	public String showUserInfo(Gizmo gizmo, Model model) {
-
-		ServerResponse response;
-
+	public String getVR(Gizmo gizmo, Model model) {
 		try {
-			response = this.voterAccess.getVoter(gizmo.getField1(), gizmo.getField2());
+			ServerResponse response = this.voterAccess.getVoter(gizmo.getField1(), gizmo.getField2());
 			this.serverResponse = response;
 			userInfo = new UserInfo(gizmo.getField1(), gizmo.getField2());
 		} catch (Exception e) {
@@ -62,7 +56,7 @@ public class MainController {
 		}
 
 		ArrayList<Object> atributos = new ArrayList<>();
-		atributos.add(response);
+		atributos.add(this.serverResponse);
 
 		model.addAttribute("atributes", atributos);
 
@@ -70,18 +64,16 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
-	public String changePassword(Model model) {
+	public String changePass(Model model) {
 		model.addAttribute(new Gizmo());
 		return "ChangePassword";
 	}
 
 	@RequestMapping(value = "/changingPassword", method = RequestMethod.POST)
 	public String changingPassword(Gizmo gizmo, Model model) {
-		
-		User user = repository.findByEmailAndPassword(userInfo.getEmail(), userInfo.getPassword());
-		user.setPassword(gizmo.getField1());
-		repository.save(user);
-		
+
+		this.voterAccess.updatePassword(userInfo.getEmail(), userInfo.getPassword(), gizmo.getField1());
+
 		ArrayList<Object> atributos = new ArrayList<>();
 		atributos.add(serverResponse);
 
