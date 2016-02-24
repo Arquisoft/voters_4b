@@ -3,3 +3,7 @@ jdk:
 - oraclejdk8
 notifications:
   slack: voters4b:uWhdxeOQHUm6UfdZipu09cFz
+  before_install:
+  - pip install codecov
+after_success:
+  - codecov
