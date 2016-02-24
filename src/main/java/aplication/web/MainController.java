@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import aplication.UserInfo;
 import aplication.domain.Gizmo;
 import aplication.domain.ServerResponse;
+import aplication.domain.User;
+import aplication.service.DBManagement;
 import aplication.service.VoterAcces;
 import groovy.lang.Grab;
 
@@ -19,6 +21,9 @@ import groovy.lang.Grab;
 
 @Controller
 public class MainController {
+
+	private UserInfo userInfo;
+	private ServerResponse serverResponse;
 
 	@Autowired
 	private VoterAcces voterAccess;
@@ -32,22 +37,45 @@ public class MainController {
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getVI(@RequestBody UserInfo userInfo) {
-		return this.voterAccess.getVoter(userInfo.getEmail(), userInfo.getPassword());
+
+		this.userInfo = userInfo;
+
+		this.serverResponse = this.voterAccess.getVoter(userInfo.getEmail(), userInfo.getPassword());
+
+		return serverResponse;
 	}
 
 	@RequestMapping(value = "/showUserInfo", method = RequestMethod.POST)
-	public String showUserInfo(Gizmo gizmo, Model model) {
-
-		ServerResponse response;
-		
+	public String getVR(Gizmo gizmo, Model model) {
 		try {
-			response = this.voterAccess.getVoter(gizmo.getField1(), gizmo.getField2());
+			ServerResponse response = this.voterAccess.getVoter(gizmo.getField1(), gizmo.getField2());
+			this.serverResponse = response;
+			userInfo = new UserInfo(gizmo.getField1(), gizmo.getField2());
 		} catch (Exception e) {
 			return "WelcomePage";
 		}
 
 		ArrayList<Object> atributos = new ArrayList<>();
-		atributos.add(response);
+		atributos.add(this.serverResponse);
+
+		model.addAttribute("atributes", atributos);
+
+		return "InfoPage";
+	}
+
+	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+	public String changePass(Model model) {
+		model.addAttribute(new Gizmo());
+		return "ChangePassword";
+	}
+
+	@RequestMapping(value = "/changingPassword", method = RequestMethod.POST)
+	public String changingPassword(Gizmo gizmo, Model model) {
+
+		this.voterAccess.updatePassword(userInfo.getEmail(), userInfo.getPassword(), gizmo.getField1());
+
+		ArrayList<Object> atributos = new ArrayList<>();
+		atributos.add(serverResponse);
 
 		model.addAttribute("atributes", atributos);
 

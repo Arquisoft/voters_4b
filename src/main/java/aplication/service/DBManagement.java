@@ -7,5 +7,6 @@ import aplication.domain.User;
 public interface DBManagement extends CrudRepository<User, Long> {
 
 	User findByEmailAndPassword(String email, String password);
+	
 
 }

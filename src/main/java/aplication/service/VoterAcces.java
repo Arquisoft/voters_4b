@@ -8,13 +8,14 @@ import aplication.domain.ServerResponse;
 import aplication.domain.User;
 
 @Component("voterAccess")
-public class VoterAcces implements GetVoterInfo {
+public class VoterAcces implements GetVoterInfo, ChangePassword {
 
 	@Autowired
 	private DBManagement repository;
 
-	public VoterAcces() {}
-	
+	public VoterAcces() {
+	}
+
 	public VoterAcces(DBManagement userRepository) {
 		this.repository = userRepository;
 
@@ -33,6 +34,15 @@ public class VoterAcces implements GetVoterInfo {
 		} else {
 			return new ServerResponse(user.getName(), user.getNif(), user.getEmail(), user.getPollingStationCode());
 		}
+	}
+
+	@Override
+	public void updatePassword(String email, String password, String newPassword) {
+		User user = this.repository.findByEmailAndPassword(email, password);
+		// this.repository.delete(user);
+		user.setPassword(newPassword);
+		this.repository.save(user);
+
 	}
 
 }
